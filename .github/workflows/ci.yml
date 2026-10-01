@@ -1,0 +1,39 @@
+# Runs every check a release depends on — formatting, analysis, tests and a publish dry run — on
+# every push and pull request.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.47.5 # keep in step with .fvmrc
+          cache: true
+
+      - run: flutter pub get
+
+      - name: Formatting
+        run: dart run melos run format:check
+
+      - name: Analysis
+        run: dart run melos run analyze
+
+      - name: Tests
+        run: dart run melos run test
+
+      - name: Publish dry run
+        # Proves every package is what pub.dev will accept, without uploading anything.
+        run: dart run melos run publish:dry

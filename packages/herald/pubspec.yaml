@@ -1,0 +1,18 @@
+name: herald
+description: >-
+  One analytics vocabulary, heard by every vendor. Events, properties and the
+  Herald fan-out, in pure Dart with no vendor SDK.
+version: 1.0.0-dev.1
+homepage: https://mkhytarmkhoian.github.io/herald/
+repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald
+issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
+documentation: https://mkhytarmkhoian.github.io/herald/
+topics: [analytics, tracking, events]
+
+environment:
+  sdk: ^3.13.0
+
+resolution: workspace
+
+dev_dependencies:
+  test: ^1.26.0

@@ -1,0 +1,50 @@
+name: herald_workspace
+description: Workspace root for the Herald Flutter SDK. Not published.
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+
+workspace:
+  - packages/herald
+  - packages/herald_testing
+  - packages/herald_log
+  - packages/herald_firebase
+  - packages/herald_adjust
+  - packages/herald_mixpanel
+  - packages/herald_appsflyer
+  - packages/herald_amplitude
+  - docs_samples
+  - example
+
+dev_dependencies:
+  lints: ^6.1.0
+  melos: ^8.9.0
+
+melos:
+  repository: https://github.com/MkhytarMkhoian/herald-flutter
+
+  command:
+    version:
+      # Every package ships under one version, like the Android SDK's modules.
+      mode: fixed
+      linkToCommits: false
+      workspaceChangelog: false
+
+  scripts:
+    analyze:
+      description: Analyze every package, failing on infos.
+      exec: dart analyze --fatal-infos .
+    format:check:
+      description: Fail if any file is not formatted.
+      run: dart format --output=none --set-exit-if-changed .
+    test:
+      description: Run the tests of every package that has them.
+      exec: flutter test
+      packageFilters:
+        dirExists: test
+    publish:dry:
+      description: Check that every package can be published.
+      exec: dart pub publish --dry-run
+      packageFilters:
+        noPrivate: true

@@ -1,0 +1,26 @@
+name: herald_example
+description: >-
+  A Flutter app that sends every Herald call to the log and to an on-screen
+  timeline.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  herald: ^1.0.0-dev.1
+  herald_log: ^1.0.0-dev.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  herald_testing: ^1.0.0-dev.1
+
+flutter:
+  uses-material-design: true

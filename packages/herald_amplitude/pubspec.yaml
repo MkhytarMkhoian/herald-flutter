@@ -1,0 +1,26 @@
+name: herald_amplitude
+description: >-
+  A Herald vendor adapter that sends to Amplitude: events, user properties, screen views and revenue.
+version: 1.0.0-dev.1
+homepage: https://mkhytarmkhoian.github.io/herald/vendors/amplitude/
+repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald_amplitude
+issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
+documentation: https://mkhytarmkhoian.github.io/herald/vendors/amplitude/
+topics: [analytics, amplitude, tracking]
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+resolution: workspace
+
+dependencies:
+  amplitude_flutter: ^4.7.2
+  flutter:
+    sdk: flutter
+  herald: ^1.0.0-dev.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.5

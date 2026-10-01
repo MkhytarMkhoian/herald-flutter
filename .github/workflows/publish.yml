@@ -1,0 +1,43 @@
+# Publishes every package to pub.dev when a `v*` tag is pushed, through pub.dev's automated
+# publishing: GitHub proves the tag's origin to pub.dev, so no credentials are stored here.
+#
+# One job, in dependency order: a package is published only after the packages it depends on, so
+# pub.dev can resolve each one against versions it already has.
+#
+# Each package needs automated publishing turned on once, on its pub.dev admin page, for this
+# repository with the tag pattern `v{{version}}`. See RELEASING.md.
+name: Publish
+
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+*']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pub.dev
+    permissions:
+      id-token: write # pub.dev's automated publishing authenticates with the OIDC token
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.47.5 # keep in step with .fvmrc
+
+      - run: flutter pub get
+
+      - name: Every package carries the tag's version
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          for pubspec in packages/*/pubspec.yaml; do
+            grep -q "^version: ${version}$" "$pubspec" || { echo "$pubspec is not $version"; exit 1; }
+          done
+
+      - name: Publish
+        run: |
+          for package in herald herald_testing herald_log \
+              herald_firebase herald_adjust herald_mixpanel herald_appsflyer herald_amplitude; do
+            (cd "packages/$package" && flutter pub publish --force)
+          done

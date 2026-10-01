@@ -1,0 +1,26 @@
+name: herald_firebase
+description: >-
+  A Herald vendor adapter that sends to Firebase Analytics (GA4).
+version: 1.0.0-dev.1
+homepage: https://mkhytarmkhoian.github.io/herald/vendors/firebase/
+repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald_firebase
+issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
+documentation: https://mkhytarmkhoian.github.io/herald/vendors/firebase/
+topics: [analytics, firebase, google-analytics, tracking]
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+resolution: workspace
+
+dependencies:
+  firebase_analytics: ^12.6.0
+  flutter:
+    sdk: flutter
+  herald: ^1.0.0-dev.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.5

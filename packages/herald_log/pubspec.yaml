@@ -1,0 +1,21 @@
+name: herald_log
+description: >-
+  A Herald vendor that prints every event, property and call as a readable
+  record, for debug builds.
+version: 1.0.0-dev.1
+homepage: https://mkhytarmkhoian.github.io/herald/vendors/log/
+repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald_log
+issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
+documentation: https://mkhytarmkhoian.github.io/herald/vendors/log/
+topics: [analytics, logging, debugging]
+
+environment:
+  sdk: ^3.13.0
+
+resolution: workspace
+
+dependencies:
+  herald: ^1.0.0-dev.1
+
+dev_dependencies:
+  test: ^1.26.0

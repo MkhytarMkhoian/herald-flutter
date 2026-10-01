@@ -1,0 +1,33 @@
+name: herald_docs_samples
+description: >-
+  The Dart code shown on the Herald website. Compiled and tested by CI, so
+  every snippet on the site builds against the current API. Not published.
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+resolution: workspace
+
+dependencies:
+  adjust_sdk: ^5.8.0
+  amplitude_flutter: ^4.7.2
+  appsflyer_sdk: ^7.0.2
+  firebase_analytics: ^12.6.0
+  flutter:
+    sdk: flutter
+  herald: ^1.0.0-dev.1
+  herald_adjust: ^1.0.0-dev.1
+  herald_amplitude: ^1.0.0-dev.1
+  herald_appsflyer: ^1.0.0-dev.1
+  herald_firebase: ^1.0.0-dev.1
+  herald_log: ^1.0.0-dev.1
+  herald_mixpanel: ^1.0.0-dev.1
+  mixpanel_flutter: ^2.14.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  herald_testing: ^1.0.0-dev.1
+  mocktail: ^1.0.5
