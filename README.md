@@ -7,7 +7,7 @@
 
 [![CI](https://github.com/MkhytarMkhoian/herald-flutter/actions/workflows/ci.yml/badge.svg)](https://github.com/MkhytarMkhoian/herald-flutter/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Docs](https://img.shields.io/badge/docs-website-indigo.svg)](https://mkhytarmkhoian.github.io/herald/)
+[![Docs](https://img.shields.io/badge/docs-website-indigo.svg)](https://mkhytarmkhoian.github.io/herald-docs/)
 
 Herald is an analytics library for mobile apps. Your app describes what happened as an event, and
 Herald sends that event to every analytics service you use: Firebase, Adjust, Mixpanel, AppsFlyer,
@@ -158,8 +158,8 @@ Dart:
 
 ## Documentation
 
-The full documentation is on the [project website](https://mkhytarmkhoian.github.io/herald/). Its
-guides describe Herald itself, not one platform, so they apply here too.
+The full documentation is on the [project website](https://mkhytarmkhoian.github.io/herald-docs/).
+Its guides describe Herald itself, not one platform, and show the code for Flutter and Android.
 
 The [example app](example) sends every call to the log and to an on-screen timeline, and its tests
 use `herald_testing`.

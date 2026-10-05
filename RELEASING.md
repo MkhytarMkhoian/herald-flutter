@@ -2,6 +2,8 @@
 
 A release is a `vX.Y.Z` tag. Pushing it runs the **Publish** workflow, which publishes every
 package to pub.dev under that version, in dependency order. All packages always share one version.
+Then it asks [herald-docs](https://github.com/MkhytarMkhoian/herald-docs) to redeploy the website,
+which takes its Dart samples and change log from the newest release tag.
 
 The very first release is different: it is published by hand, then automated publishing is turned
 on. See [The first release](#the-first-release).
@@ -21,7 +23,8 @@ on. See [The first release](#the-first-release).
 
    Check that every `packages/*/pubspec.yaml` now says `version: X.Y.Z`. The workflow refuses to
    publish otherwise.
-3. **Update the version shown to readers,** in the install snippets of `README.md`.
+3. **Update the version shown to readers,** in the install snippets of `README.md`. The website's
+   pages change in herald-docs, in a pull request merged once the release is out.
 4. **Check that everything passes:**
 
     ```bash
@@ -40,7 +43,7 @@ on. See [The first release](#the-first-release).
     ```
 
 6. **Verify:**
-    - The Publish workflow is green on the tag.
+    - The Publish workflow is green on the tag, and the Docs workflow it starts in herald-docs too.
     - Every package shows `X.Y.Z` on pub.dev: `https://pub.dev/packages/herald`.
     - About an hour later, each package's **Scores** tab on pub.dev shows 160 points, or explains
       what costs points.
@@ -49,6 +52,14 @@ on. See [The first release](#the-first-release).
 A version on pub.dev is permanent. For 7 days after publishing it can be *retracted*, which hides it
 from new installs, but it can never be replaced or deleted. When a release is wrong, fix it forward
 with the next version. A package name, once published, is reserved for good.
+
+## One-time setup
+
+- **`DOCS_DISPATCH_TOKEN`**, a repository secret: a fine-grained personal access token that can
+  start herald-docs' Docs workflow, with repository access to herald-docs only and the Contents
+  permission set to read and write. The same token is in the herald repository. It expires, so
+  renew it before it does.
+- **Automated publishing,** set up as in [The first release](#the-first-release).
 
 ## The first release
 

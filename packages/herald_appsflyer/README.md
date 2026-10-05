@@ -34,6 +34,6 @@ Purchases go through `AppsFlyerPurchaseEvent` (`af_purchase`), subscriptions thr
 
 ## Documentation
 
-The [Herald website](https://mkhytarmkhoian.github.io/herald/) has the guides, and the
+The [Herald website](https://mkhytarmkhoian.github.io/herald-docs/) has the guides, and the
 [repository](https://github.com/MkhytarMkhoian/herald-flutter) has the other packages and an
 example app.

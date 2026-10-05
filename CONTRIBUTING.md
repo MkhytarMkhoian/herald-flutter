@@ -53,9 +53,10 @@ The [example app](example) uses every local package this way, through the worksp
   can only change incompatibly in a major version. Keep helpers in `lib/src` and out of the export
   list.
 - **Documentation, when users would notice.** Update the matching sample in `docs_samples`, which
-  CI compiles and tests, and the matching website page if its wording changes. The website shows
-  each `// --8<--` section and the marked sections of `README.md` by name, so keep those names, or
-  rename them on the website in step. Links inside marked README sections must be absolute,
+  CI compiles and tests, and the matching page in
+  [herald-docs](https://github.com/MkhytarMkhoian/herald-docs) if its wording changes. The website
+  shows each `// --8<--` section and the marked sections of `README.md` by name, so keep those
+  names, or rename them on the website in step. Links inside marked README sections must be absolute,
   because they also appear on the website.
 - **A line in `CHANGELOG.md`** under the next, unreleased version, starting with `New:`, `Fix:`,
   `Upgrade:` or `Breaking:`.
@@ -90,5 +91,5 @@ change to `herald`.
       send? What does `setEnabled` call? Does the vendor remember the choice across launches?
 - [ ] **Typed values.** Send numbers and booleans as themselves wherever the plugin accepts them.
 - [ ] **Tests** for every service method, factory and handler.
-- [ ] **Everywhere packages are listed:** the table in `README.md`, `docs_samples`, and the vendor
-      page on the website.
+- [ ] **Everywhere packages are listed:** the table in `README.md`, `docs_samples`, and a vendor
+      page in herald-docs.

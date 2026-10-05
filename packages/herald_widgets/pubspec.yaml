@@ -5,6 +5,7 @@ description: >-
 version: 1.0.0-dev.2
 repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald_widgets
 issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
+documentation: https://mkhytarmkhoian.github.io/herald-docs/sdks/flutter/
 topics: [analytics, tracking, widget]
 
 environment:

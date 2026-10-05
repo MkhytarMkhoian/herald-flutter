@@ -6,6 +6,9 @@
 #
 # Each package needs automated publishing turned on once, on its pub.dev admin page, for this
 # repository with the tag pattern `v{{version}}`. See RELEASING.md.
+#
+# Then it asks herald-docs to redeploy the website with this release. That needs the
+# DOCS_DISPATCH_TOKEN secret, a token that starts herald-docs' workflows.
 name: Publish
 
 on:
@@ -45,3 +48,8 @@ jobs:
               herald_firebase herald_adjust herald_mixpanel herald_appsflyer herald_amplitude; do
             (cd "packages/$package" && flutter pub publish --force)
           done
+
+      - name: Redeploy the website
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_DISPATCH_TOKEN }}
+        run: gh api repos/MkhytarMkhoian/herald-docs/dispatches -f event_type=sdk-release
