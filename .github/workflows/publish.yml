@@ -21,6 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # Exchanges GitHub's OIDC token for a pub.dev one and registers it with pub. Without it,
+      # `flutter pub publish` asks for a browser login and waits forever.
+      - uses: dart-lang/setup-dart@v1
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
