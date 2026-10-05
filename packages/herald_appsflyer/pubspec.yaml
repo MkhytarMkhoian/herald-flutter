@@ -14,7 +14,7 @@ environment:
 resolution: workspace
 
 dependencies:
-  appsflyer_sdk: 7.0.2+1
+  appsflyer_sdk: ^7.0.2
   flutter:
     sdk: flutter
   herald: ^1.0.0

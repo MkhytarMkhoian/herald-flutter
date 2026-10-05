@@ -13,7 +13,7 @@ resolution: workspace
 dependencies:
   adjust_sdk: ^5.8.0
   amplitude_flutter: ^4.7.2
-  appsflyer_sdk: 7.0.2+1
+  appsflyer_sdk: ^7.0.2
   firebase_analytics: ^12.6.0
   flutter:
     sdk: flutter
