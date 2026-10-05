@@ -111,10 +111,7 @@ absolute. -->
 | [`herald_amplitude`](https://pub.dev/packages/herald_amplitude) | Sends to Amplitude, over `amplitude_flutter`: events, user properties, screen views and revenue. |
 | [`herald_log`](https://pub.dev/packages/herald_log) | Prints every call, for debug builds. Pure Dart. |
 | [`herald_testing`](https://pub.dev/packages/herald_testing) | `FakeAnalyticsProvider`, a fake vendor that records events so your tests can check them. |
-
-The Android SDK's `herald-compose` has no Flutter counterpart: track screen views from a
-`NavigatorObserver`, as the
-[example app](https://github.com/MkhytarMkhoian/herald-flutter/tree/main/example) does.
+| [`herald_widgets`](https://pub.dev/packages/herald_widgets) | Optional: tracking from widgets, such as screen views each time a screen becomes visible, and impressions. The Flutter counterpart of the Android SDK's `herald-compose`. Without it, your screens and blocs track through `EventTrackerService` as usual. |
 <!-- --8<-- [end:packages] -->
 
 ## Compatibility

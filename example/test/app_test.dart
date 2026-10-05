@@ -18,4 +18,17 @@ void main() {
 
     expect(timeline.lines, ['screen home', 'screen product  product_id=week_pass', 'screen home']);
   });
+
+  testWidgets('settings tracks its own screen view, without herald_widgets', (tester) async {
+    final timeline = TimelineAnalytics();
+    final herald = buildHerald(timeline);
+
+    await tester.pumpWidget(HeraldExampleApp(herald: herald, timeline: timeline));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Settings'));
+    await tester.pumpAndSettle();
+
+    // Newest first.
+    expect(timeline.lines, ['screen settings', 'screen home']);
+  });
 }

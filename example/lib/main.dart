@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:herald/herald.dart';
+import 'package:herald_widgets/herald_widgets.dart';
 
-import 'analytics/events.dart';
 import 'analytics/herald_setup.dart';
-import 'analytics/screen_view_observer.dart';
 import 'analytics/timeline_analytics.dart';
 import 'screens/home_screen.dart';
 import 'screens/product_screen.dart';
@@ -33,43 +32,41 @@ class const HeraldExampleApp({
 }
 
 class _HeraldExampleAppState extends State<HeraldExampleApp> {
-  late final _screenViews = ScreenViewObserver(
-    widget.herald,
-    (route) => switch (route.settings) {
-      RouteSettings(name: HomeScreen.route) => const HomeViewed(),
-      RouteSettings(name: ProductScreen.route, :final String arguments) => ProductViewed(arguments),
-      RouteSettings(name: SettingsScreen.route) => const SettingsViewed(),
-      _ => null,
-    },
-  );
+  // Tells each screen's TrackScreenView when it is shown.
+  final _routes = HeraldRouteObserver();
 
   var _dark = false;
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-    title: 'Herald example',
-    theme: ThemeData(colorSchemeSeed: Colors.indigo),
-    darkTheme: ThemeData(colorSchemeSeed: Colors.indigo, brightness: Brightness.dark),
-    themeMode: _dark ? ThemeMode.dark : ThemeMode.light,
-    navigatorObservers: [_screenViews],
-    initialRoute: HomeScreen.route,
-    onGenerateRoute: (settings) => MaterialPageRoute<void>(
-      settings: settings,
-      builder: (_) => switch (settings.name) {
-        ProductScreen.route => ProductScreen(
-          productId: settings.arguments! as String,
-          analytics: widget.herald,
-          properties: widget.herald,
-        ),
-        SettingsScreen.route => SettingsScreen(
-          consent: widget.herald,
-          identity: widget.herald,
-          properties: widget.herald,
-          dark: _dark,
-          onDarkChanged: (dark) => setState(() => _dark = dark),
-        ),
-        _ => HomeScreen(timeline: widget.timeline),
-      },
+  Widget build(BuildContext context) => HeraldScope(
+    analytics: widget.herald,
+    routes: _routes,
+    child: MaterialApp(
+      title: 'Herald example',
+      theme: ThemeData(colorSchemeSeed: Colors.indigo),
+      darkTheme: ThemeData(colorSchemeSeed: Colors.indigo, brightness: Brightness.dark),
+      themeMode: _dark ? ThemeMode.dark : ThemeMode.light,
+      navigatorObservers: [_routes],
+      initialRoute: HomeScreen.route,
+      onGenerateRoute: (settings) => MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => switch (settings.name) {
+          ProductScreen.route => ProductScreen(
+            productId: settings.arguments! as String,
+            analytics: widget.herald,
+            properties: widget.herald,
+          ),
+          SettingsScreen.route => SettingsScreen(
+            analytics: widget.herald,
+            consent: widget.herald,
+            identity: widget.herald,
+            properties: widget.herald,
+            dark: _dark,
+            onDarkChanged: (dark) => setState(() => _dark = dark),
+          ),
+          _ => HomeScreen(timeline: widget.timeline),
+        },
+      ),
     ),
   );
 }

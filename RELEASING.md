@@ -71,7 +71,7 @@ published by hand, from your machine.
    confirm. Use `flutter pub publish`, not `dart pub publish`: the vendor packages depend on Flutter.
 
     ```bash
-    for package in herald herald_testing herald_log \
+    for package in herald herald_testing herald_log herald_widgets \
         herald_firebase herald_adjust herald_mixpanel herald_appsflyer herald_amplitude; do
       (cd "packages/$package" && flutter pub publish)
     done
@@ -91,3 +91,14 @@ published by hand, from your machine.
    No password or token is stored: GitHub proves to pub.dev that the run came from this
    repository's tag.
 7. **Release the next version with the steps above,** to check the workflow end to end.
+
+## Adding a package
+
+pub.dev's automated publishing can't create a package, so a new one goes up by hand once:
+
+1. Give it the version the other packages have now, and merge it to `main`.
+2. Publish it from its directory with `flutter pub publish`.
+3. Turn on its automated publishing, as in step 6 of [The first release](#the-first-release).
+
+From the next tag on, the Publish workflow publishes it with the rest. It must already be in the
+workflow's list, after the packages it depends on.

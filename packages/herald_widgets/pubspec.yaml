@@ -1,0 +1,25 @@
+name: herald_widgets
+description: >-
+  Track Herald events from Flutter widgets: screen views when a screen becomes visible,
+  impressions when something is really on screen, and taps.
+version: 1.0.0-dev.2
+repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald_widgets
+issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
+topics: [analytics, tracking, widget]
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  herald: ^1.0.0-dev.2
+  visibility_detector: ^0.4.0+2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  herald_testing: ^1.0.0-dev.2

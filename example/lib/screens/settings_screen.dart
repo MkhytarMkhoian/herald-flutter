@@ -5,7 +5,11 @@ import '../analytics/events.dart';
 
 /// Consent, sign-in and a preference: each control needs a different analytics interface, and
 /// gets only that one.
+///
+/// It tracks its own screen view, with no extra package: once each time it opens. (Home and
+/// Product use herald_widgets' TrackScreenView instead, which also counts coming back to them.)
 class const SettingsScreen({
+  required final EventTrackerService analytics,
   required final ConsentService consent,
   required final IdentifiableUserService identity,
   required final PropertyTrackerService properties,
@@ -23,6 +27,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   var _consent = false;
   var _signedIn = false;
   late var _dark = widget.dark;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.analytics.track(const SettingsViewed()).ignore(); // Herald never fails a call
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(

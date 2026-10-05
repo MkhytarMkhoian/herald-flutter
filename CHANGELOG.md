@@ -1,8 +1,18 @@
 # Change Log
 
-## Version 1.0.0-dev.2
+## Version 1.0.0-dev.3
 
 _Unreleased_
+
+ * New: `herald_widgets`, an optional package for tracking from Flutter widgets, like the Android
+   SDK's `herald-compose`. `TrackScreenView` tracks a screen view each time a screen becomes visible,
+   `TrackOnScreen` tracks any event when a screen is shown or hidden, `TrackImpression` tracks
+   something once it is really on screen, and `HeraldScope.of(context)` gives widgets the tracker
+   for taps.
+
+## Version 1.0.0-dev.2
+
+_2026-10-05_
 
 The first preview of Herald for Flutter: the Android SDK's design, in Dart, over each vendor's
 official Flutter plugin.

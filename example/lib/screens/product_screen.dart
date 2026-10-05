@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herald/herald.dart';
+import 'package:herald_widgets/herald_widgets.dart';
 
 import '../analytics/events.dart';
 
@@ -36,20 +37,24 @@ class _ProductScreenState extends State<ProductScreen> {
     await widget.analytics.track(OrderPaid(items, items * _price));
   }
 
+  // The screen view comes from herald_widgets, like Home's.
   @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(widget.productId)),
-    body: Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text('\$$_price', style: Theme.of(context).textTheme.headlineMedium),
-          const SizedBox(height: 16),
-          FilledButton(onPressed: _addToCart, child: const Text('Add to cart')),
-          const SizedBox(height: 8),
-          OutlinedButton(onPressed: _inCart == 0 ? null : _buy, child: Text('Buy $_inCart')),
-        ],
+  Widget build(BuildContext context) => TrackScreenView(
+    event: ProductViewed(widget.productId),
+    child: Scaffold(
+      appBar: AppBar(title: Text(widget.productId)),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text('\$$_price', style: Theme.of(context).textTheme.headlineMedium),
+            const SizedBox(height: 16),
+            FilledButton(onPressed: _addToCart, child: const Text('Add to cart')),
+            const SizedBox(height: 8),
+            OutlinedButton(onPressed: _inCart == 0 ? null : _buy, child: Text('Buy $_inCart')),
+          ],
+        ),
       ),
     ),
   );

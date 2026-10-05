@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:herald/herald.dart';
 
@@ -18,7 +20,9 @@ final class TimelineAnalytics extends ChangeNotifier
 
   void _add(String line) {
     _lines.add(line);
-    notifyListeners();
+    // A call can come in the middle of a build, such as a screen tracking itself in initState, and
+    // the timeline on screen can't rebuild then. So it updates right after.
+    scheduleMicrotask(notifyListeners);
   }
 
   @override

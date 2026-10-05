@@ -24,6 +24,7 @@ dependencies:
   herald_firebase: ^1.0.0-dev.2
   herald_log: ^1.0.0-dev.2
   herald_mixpanel: ^1.0.0-dev.2
+  herald_widgets: ^1.0.0-dev.2
   mixpanel_flutter: ^2.14.0
 
 dev_dependencies:

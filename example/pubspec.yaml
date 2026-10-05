@@ -16,6 +16,7 @@ dependencies:
     sdk: flutter
   herald: ^1.0.0-dev.2
   herald_log: ^1.0.0-dev.2
+  herald_widgets: ^1.0.0-dev.2
 
 dev_dependencies:
   flutter_test:
