@@ -41,7 +41,7 @@ dev_dependencies:
 ```
 
 All packages share one version. Each vendor package pulls in `herald` and that vendor's Flutter
-plugin. Herald needs Dart 3.13 and Flutter 3.47 or newer.
+plugin.
 
 ## In 30 seconds
 
@@ -95,29 +95,57 @@ final herald = Herald(
 );
 ```
 
+<!-- The marked sections below also appear on the website's Flutter page, so their links are
+absolute. -->
+
 ## Packages
 
+<!-- --8<-- [start:packages] -->
 | Package | What it is |
 | --- | --- |
-| [`herald`](packages/herald) | Events, properties and `Herald` itself. Pure Dart, with no Flutter, vendor SDK or DI library. |
-| [`herald_firebase`](packages/herald_firebase) | Sends to Firebase Analytics (GA4), over `firebase_analytics`. |
-| [`herald_adjust`](packages/herald_adjust) | Sends to Adjust, over `adjust_sdk`: events by dashboard token, purchases and ad revenue. |
-| [`herald_mixpanel`](packages/herald_mixpanel) | Sends to Mixpanel, over `mixpanel_flutter`: events, user profile and super properties. |
-| [`herald_appsflyer`](packages/herald_appsflyer) | Sends to AppsFlyer, over `appsflyer_sdk` 7: conversions, purchases, subscriptions and ad revenue. |
-| [`herald_amplitude`](packages/herald_amplitude) | Sends to Amplitude, over `amplitude_flutter`: events, user properties, screen views and revenue. |
-| [`herald_log`](packages/herald_log) | Prints every call, for debug builds. Pure Dart. |
-| [`herald_testing`](packages/herald_testing) | `FakeAnalyticsProvider`, a fake vendor that records events so your tests can check them. |
+| [`herald`](https://pub.dev/packages/herald) | Events, properties and `Herald` itself. Pure Dart, with no Flutter, vendor SDK or DI library. |
+| [`herald_firebase`](https://pub.dev/packages/herald_firebase) | Sends to Firebase Analytics (GA4), over `firebase_analytics`. |
+| [`herald_adjust`](https://pub.dev/packages/herald_adjust) | Sends to Adjust, over `adjust_sdk`: events by dashboard token, purchases and ad revenue. |
+| [`herald_mixpanel`](https://pub.dev/packages/herald_mixpanel) | Sends to Mixpanel, over `mixpanel_flutter`: events, user profile and super properties. |
+| [`herald_appsflyer`](https://pub.dev/packages/herald_appsflyer) | Sends to AppsFlyer, over `appsflyer_sdk` 7: conversions, purchases, subscriptions and ad revenue. |
+| [`herald_amplitude`](https://pub.dev/packages/herald_amplitude) | Sends to Amplitude, over `amplitude_flutter`: events, user properties, screen views and revenue. |
+| [`herald_log`](https://pub.dev/packages/herald_log) | Prints every call, for debug builds. Pure Dart. |
+| [`herald_testing`](https://pub.dev/packages/herald_testing) | `FakeAnalyticsProvider`, a fake vendor that records events so your tests can check them. |
 
 The Android SDK's `herald-compose` has no Flutter counterpart: track screen views from a
-`NavigatorObserver`, as the [example app](example) does.
+`NavigatorObserver`, as the
+[example app](https://github.com/MkhytarMkhoian/herald-flutter/tree/main/example) does.
+<!-- --8<-- [end:packages] -->
+
+## Compatibility
+
+<!-- --8<-- [start:compatibility] -->
+Herald needs Dart 3.13 and Flutter 3.47 or newer. It is built and tested against these plugins:
+
+| Plugin | Version |
+| --- | --- |
+| `firebase_analytics` | 12.6 |
+| `adjust_sdk` | 5.8 |
+| `mixpanel_flutter` | 2.14 |
+| `appsflyer_sdk` | 7.0 |
+| `amplitude_flutter` | 4.7 |
+
+Each vendor package allows newer versions of its plugin within the same major version. A new major
+version of a plugin may need a Herald release.
+<!-- --8<-- [end:compatibility] -->
 
 ## What differs from Android
+
+<!-- --8<-- [start:differences] -->
 
 Herald's concepts are the same on both platforms. Where Dart differs from Kotlin, the API follows
 Dart:
 
 - **Futures, not coroutines.** Every capability returns a `Future<void>`. There is no dispatcher:
   vendor plugins already do their work off the UI thread.
+- **Await when order matters.** A call starts at once and doesn't wait for earlier ones, so two
+  calls you don't await can reach a vendor in either order. When order matters, such as turning
+  collection off before tracking, await the first call.
 - **Four value types.** Dart has one integer and one floating-point type, so `AnalyticsValue` is
   `.string`, `.int`, `.double` or `.bool`. Write parameters as a map with dot shorthands:
   `{'seats': .int(3)}`.
@@ -129,6 +157,7 @@ Dart:
   vendor, as factories already are: `GenericFirebaseEventTracker`, `TokenAdjustEventTracker`.
 - **Adjust takes no SDK object.** The Adjust plugin is static functions, so the adapter calls them
   directly. Its tests record what the plugin sends over its channel.
+<!-- --8<-- [end:differences] -->
 
 ## Documentation
 

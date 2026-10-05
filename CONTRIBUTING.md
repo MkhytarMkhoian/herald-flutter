@@ -53,7 +53,10 @@ The [example app](example) uses every local package this way, through the worksp
   can only change incompatibly in a major version. Keep helpers in `lib/src` and out of the export
   list.
 - **Documentation, when users would notice.** Update the matching sample in `docs_samples`, which
-  CI compiles and tests, and the website page in the Android repository if its wording changes.
+  CI compiles and tests, and the matching website page if its wording changes. The website shows
+  each `// --8<--` section and the marked sections of `README.md` by name, so keep those names, or
+  rename them on the website in step. Links inside marked README sections must be absolute,
+  because they also appear on the website.
 - **A line in `CHANGELOG.md`** under the next, unreleased version, starting with `New:`, `Fix:`,
   `Upgrade:` or `Breaking:`.
 
@@ -64,9 +67,11 @@ template, or `herald_appsflyer` for a vendor that only takes events. A new vendo
 change to `herald`.
 
 - [ ] **The package.** `packages/herald_<vendor>`, with `resolution: workspace`, the vendor's
-      Flutter plugin as a dependency, a `LICENSE` copy, a `README.md` and a `CHANGELOG.md`. Add it
-      to the root `pubspec.yaml` workspace list and to the publish order in
-      `.github/workflows/publish.yml`.
+      Flutter plugin as a dependency, a `LICENSE` copy, a `README.md`, a `CHANGELOG.md`, the
+      `analysis_options.yaml` every package has, and an `example/herald_<vendor>_example.dart`
+      that sets the vendor up. pub.dev shows the example on the package page and scores the package
+      on both. Add it to the root `pubspec.yaml` workspace list and to the publish order in
+      `.github/workflows/publish.yml` and `RELEASING.md`.
 - [ ] **The factory chain,** the same as every other vendor's: the handler and factory
       interfaces, the composites (which call `FallbackFactory.requireLast`), the `RequireMapped`
       factories and the tracker service.

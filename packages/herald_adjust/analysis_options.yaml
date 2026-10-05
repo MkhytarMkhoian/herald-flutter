@@ -1,0 +1,9 @@
+# The repository's rules, for development. The width is repeated here because the published package
+# doesn't ship the root file, and pub.dev formats it with this width.
+include: ../../analysis_options.yaml
+
+formatter:
+  page_width: 100
+analyzer:
+  exclude:
+    - build/**
