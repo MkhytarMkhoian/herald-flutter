@@ -17,17 +17,17 @@ dependencies:
   firebase_analytics: ^12.6.0
   flutter:
     sdk: flutter
-  herald: ^1.0.0-dev.1
-  herald_adjust: ^1.0.0-dev.1
-  herald_amplitude: ^1.0.0-dev.1
-  herald_appsflyer: ^1.0.0-dev.1
-  herald_firebase: ^1.0.0-dev.1
-  herald_log: ^1.0.0-dev.1
-  herald_mixpanel: ^1.0.0-dev.1
+  herald: ^1.0.0-dev.2
+  herald_adjust: ^1.0.0-dev.2
+  herald_amplitude: ^1.0.0-dev.2
+  herald_appsflyer: ^1.0.0-dev.2
+  herald_firebase: ^1.0.0-dev.2
+  herald_log: ^1.0.0-dev.2
+  herald_mixpanel: ^1.0.0-dev.2
   mixpanel_flutter: ^2.14.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  herald_testing: ^1.0.0-dev.1
+  herald_testing: ^1.0.0-dev.2
   mocktail: ^1.0.5

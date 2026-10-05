@@ -1,7 +1,7 @@
 name: herald_mixpanel
 description: >-
   A Herald vendor adapter that sends to Mixpanel: events, user profile and super properties.
-version: 1.0.0-dev.1
+version: 1.0.0-dev.2
 repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald_mixpanel
 issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
 topics: [analytics, mixpanel, tracking]
@@ -15,7 +15,7 @@ resolution: workspace
 dependencies:
   flutter:
     sdk: flutter
-  herald: ^1.0.0-dev.1
+  herald: ^1.0.0-dev.2
   mixpanel_flutter: ^2.14.0
 
 dev_dependencies:

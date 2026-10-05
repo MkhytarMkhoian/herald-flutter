@@ -1,7 +1,7 @@
 name: herald_adjust
 description: >-
   A Herald vendor adapter that sends to Adjust: events by dashboard token, purchases and ad revenue.
-version: 1.0.0-dev.1
+version: 1.0.0-dev.2
 repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald_adjust
 issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
 topics: [analytics, adjust, attribution, tracking]
@@ -16,7 +16,7 @@ dependencies:
   adjust_sdk: ^5.8.0
   flutter:
     sdk: flutter
-  herald: ^1.0.0-dev.1
+  herald: ^1.0.0-dev.2
 
 dev_dependencies:
   flutter_test:
