@@ -10,7 +10,7 @@ is the simpler fit, such as counting a screen each time the user comes back to i
 
 ```yaml
 dependencies:
-  herald_widgets: ^1.0.0-dev.2
+  herald_widgets: ^1.0.0
 ```
 
 ## Set it up once

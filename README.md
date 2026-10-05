@@ -33,11 +33,11 @@ vendor rules — written in Dart, over each vendor's official Flutter plugin.
 
 ```yaml
 dependencies:
-  herald: ^1.0.0-dev.1
-  herald_firebase: ^1.0.0-dev.1 # one per vendor you use
+  herald: ^1.0.0
+  herald_firebase: ^1.0.0 # one per vendor you use
 
 dev_dependencies:
-  herald_testing: ^1.0.0-dev.1
+  herald_testing: ^1.0.0
 ```
 
 All packages share one version. Each vendor package pulls in `herald` and that vendor's Flutter

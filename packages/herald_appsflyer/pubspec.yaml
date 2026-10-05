@@ -1,7 +1,7 @@
 name: herald_appsflyer
 description: >-
   A Herald vendor adapter that sends to AppsFlyer: conversions, purchases, subscriptions and ad revenue.
-version: 1.0.0-dev.2
+version: 1.0.0
 repository: https://github.com/MkhytarMkhoian/herald-flutter/tree/main/packages/herald_appsflyer
 issue_tracker: https://github.com/MkhytarMkhoian/herald-flutter/issues
 documentation: https://mkhytarmkhoian.github.io/herald-docs/sdks/flutter/
@@ -14,10 +14,10 @@ environment:
 resolution: workspace
 
 dependencies:
-  appsflyer_sdk: ^7.0.2
+  appsflyer_sdk: 7.0.2+1
   flutter:
     sdk: flutter
-  herald: ^1.0.0-dev.2
+  herald: ^1.0.0
 
 dev_dependencies:
   flutter_test:

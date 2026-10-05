@@ -15,10 +15,12 @@ on. See [The first release](#the-first-release).
     - Check that every change a user would notice is listed, each starting with `New:`, `Fix:`,
       `Upgrade:` or `Breaking:`.
 2. **Set the version in every package.** Melos bumps each package's `version` and the constraints
-   between them together, and adds the entry to each package's `CHANGELOG.md`:
+   between them together, and adds the entry to each package's `CHANGELOG.md`. It leaves committing
+   to you:
 
     ```bash
-    dart run melos version --manual-version herald:X.Y.Z --yes --no-git-tag-version
+    dart run melos version --manual-version herald:X.Y.Z --yes \
+        --no-git-tag-version --no-git-commit-version
     ```
 
    Check that every `packages/*/pubspec.yaml` now says `version: X.Y.Z`. The workflow refuses to
