@@ -1,3 +1,9 @@
+## 1.0.1
+
+- Allows every `appsflyer_sdk` 7 version again, instead of exactly 7.0.2+1.
+- This page links to the other Herald packages.
+- See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).
+
 ## 1.0.0
 
 - The first stable release. See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).

@@ -2,7 +2,7 @@
 
 ## Version 1.0.1
 
-_Unreleased_
+_2026-10-13_
 
  * Fix: `herald_appsflyer` allows every `appsflyer_sdk` 7 version again, instead of exactly 7.0.2+1,
    so apps get AppsFlyer's fixes without a Herald release.

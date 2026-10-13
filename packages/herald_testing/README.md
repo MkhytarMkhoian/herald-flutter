@@ -5,7 +5,7 @@ and its assertions check what your code tracked.
 
 ```yaml
 dev_dependencies:
-  herald_testing: ^1.0.0
+  herald_testing: ^1.0.1
 ```
 
 The examples below test this view model:

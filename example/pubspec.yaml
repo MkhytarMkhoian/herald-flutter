@@ -14,14 +14,14 @@ resolution: workspace
 dependencies:
   flutter:
     sdk: flutter
-  herald: ^1.0.0
-  herald_log: ^1.0.0
-  herald_widgets: ^1.0.0
+  herald: ^1.0.1
+  herald_log: ^1.0.1
+  herald_widgets: ^1.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  herald_testing: ^1.0.0
+  herald_testing: ^1.0.1
 
 flutter:
   uses-material-design: true

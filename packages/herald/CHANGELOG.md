@@ -1,3 +1,8 @@
+## 1.0.1
+
+- This page lists every Herald package.
+- See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).
+
 ## 1.0.0
 
 - The first stable release. See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).
