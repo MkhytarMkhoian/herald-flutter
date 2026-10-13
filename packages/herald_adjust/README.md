@@ -29,6 +29,6 @@ events.
 
 ## Documentation
 
-The [Herald website](https://mkhytarmkhoian.github.io/herald-docs/) has the guides, and the
-[repository](https://github.com/MkhytarMkhoian/herald-flutter) has the other packages and an
-example app.
+It works with [`herald`](https://pub.dev/packages/herald), the core, whose page lists every Herald
+package. The [Herald website](https://mkhytarmkhoian.github.io/herald-docs/) has the guides, and
+the [repository](https://github.com/MkhytarMkhoian/herald-flutter) has an example app.

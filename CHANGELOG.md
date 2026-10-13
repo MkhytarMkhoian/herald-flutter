@@ -6,6 +6,8 @@ _Unreleased_
 
  * Fix: `herald_appsflyer` allows every `appsflyer_sdk` 7 version again, instead of exactly 7.0.2+1,
    so apps get AppsFlyer's fixes without a Herald release.
+ * New: the `herald` page on pub.dev lists every Herald package, and each package's page links back
+   to it.
 
 ## Version 1.0.0
 
