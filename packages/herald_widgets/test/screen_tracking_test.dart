@@ -137,9 +137,7 @@ void main() {
       expect(_tracked(analytics), ['home', 'home_left', 'home']);
     });
 
-    testWidgets("briefly losing focus, as under the notification shade, doesn't count", (
-      tester,
-    ) async {
+    testWidgets("briefly losing focus, as under Control Centre, doesn't count", (tester) async {
       await tester.pumpWidget(_app(analytics, routes, navigator));
 
       tester.binding

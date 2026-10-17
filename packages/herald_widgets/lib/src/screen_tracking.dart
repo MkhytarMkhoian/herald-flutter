@@ -20,8 +20,9 @@ enum ScreenMoment {
 /// `Navigator`'s observers, and give the same one to [HeraldScope] as `routes`.
 ///
 /// A screen is a full page, a [PageRoute]. A dialog, bottom sheet or menu over it doesn't hide it.
-/// The app briefly losing focus, as under the notification shade, doesn't either: only going out
-/// of view does.
+/// The app briefly losing focus, as under Android's notification shade or iOS's Control Centre,
+/// doesn't either: only going out of view does. On iOS the notification centre sends the app to the
+/// background, so it hides the screen.
 ///
 /// It can watch one `Navigator`. A nested navigator needs one of its own.
 final class HeraldRouteObserver extends NavigatorObserver {
