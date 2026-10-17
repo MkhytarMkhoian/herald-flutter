@@ -6,7 +6,7 @@ dashboard token, purchases and ad revenue.
 ```dart
 final tracker = AdjustAnalyticsTrackerService(
   eventTrackerFactory: CompositeAdjustEventTrackerFactory([
-    TokenAdjustEventTrackerFactory({'checkout_completed': 'abc123'}),
+    TokenAdjustEventTrackerFactory([AdjustToken<CheckoutCompleted>('abc123')]),
   ]), // nothing at the end: only tokened events are sent
   propertySetterFactory: CompositeAdjustPropertySetterFactory([
     const GenericAdjustPropertySetterFactory(),
@@ -16,6 +16,8 @@ final service = AdjustAnalyticsService(
   AdjustConfig('YOUR_APP_TOKEN', AdjustEnvironment.production),
 );
 ```
+
+Events are matched by type, not by name, so a renamed event keeps its token.
 
 **Adjust starts silent.** `start()` turns Adjust off and only then starts it, so nothing is sent
 until `setEnabled(true)`. Let the service start Adjust; don't call `Adjust.initSdk` yourself.

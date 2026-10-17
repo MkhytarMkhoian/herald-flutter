@@ -1,5 +1,18 @@
 # Change Log
 
+## Version 1.1.0
+
+_Unreleased_
+
+ * Breaking: `TokenAdjustEventTrackerFactory` takes a list of `AdjustToken`s, each pairing a token
+   with an event type, instead of a map from event names:
+   `TokenAdjustEventTrackerFactory([AdjustToken<SignUpCompleted>('abc123')])`. A renamed event keeps
+   its token, the compiler checks the list, and an event that extends a listed type uses its token
+   too. A type listed twice throws an `ArgumentError`.
+ * Fix: `herald_widgets`' docs no longer give the notification shade as an example on iOS, where
+   the notification centre sends the app to the background and so hides the screen. Control Centre
+   is the iOS example now. The behaviour doesn't change.
+
 ## Version 1.0.1
 
 _2026-10-13_

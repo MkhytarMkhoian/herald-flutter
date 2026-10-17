@@ -3,6 +3,7 @@ import 'package:herald/herald.dart';
 import 'package:herald_adjust/herald_adjust.dart';
 import 'package:herald_firebase/herald_firebase.dart';
 
+import '../concepts/factory_chain.dart';
 import '../concepts/vocabulary.dart';
 
 List<Object> routing(
@@ -19,7 +20,7 @@ List<Object> routing(
 
   // Adjust gets only events with a dashboard token.
   final adjustEvents = CompositeAdjustEventTrackerFactory([
-    TokenAdjustEventTrackerFactory({'checkout_completed': 'abc123'}),
+    TokenAdjustEventTrackerFactory([AdjustToken<CheckoutCompleted>('abc123')]),
   ]); // nothing at the end: other events aren't sent
   // --8<-- [end:two-kinds]
   return [firebaseEvents, adjustEvents];

@@ -128,29 +128,59 @@ void main() {
   });
 
   group('factories', () {
-    test('the token factory claims mapped events and declines the rest', () async {
-      final factory = TokenAdjustEventTrackerFactory({'checkout_started': 'abc123'});
+    test('the token factory sends an event of a listed type under its token', () async {
+      final factory = TokenAdjustEventTrackerFactory([AdjustToken<_SignUpCompleted>('abc123')]);
 
-      await factory.create(const TestEvent('checkout_started')).handlers.single.track();
+      await factory.create(const _SignUpCompleted()).handlers.single.track();
 
-      expect(factory.create(const TestEvent('cart_viewed')), const Declined());
       expect(_sentArguments('trackEvent'), containsPair('eventToken', 'abc123'));
     });
 
-    test('the token map cannot be changed after the factory is built', () {
-      final tokens = {'a': 't'};
+    test('the token factory matches by type, not by name, and declines the rest', () {
+      final factory = TokenAdjustEventTrackerFactory([AdjustToken<_SignUpCompleted>('abc123')]);
+
+      expect(
+        factory.create(const _SignUpCompletedWithGoogle()),
+        isA<Claimed<AdjustEventTracker>>(),
+      );
+      expect(factory.create(const TestEvent('sign_up_completed')), const Declined());
+    });
+
+    test('the token factory gives each listed type its own token', () async {
+      final factory = TokenAdjustEventTrackerFactory([
+        AdjustToken<_SignUpCompleted>('abc123'),
+        AdjustToken<TestEvent>('def456'),
+      ]);
+
+      await factory.create(const TestEvent('search_tapped')).handlers.single.track();
+
+      expect(_sentArguments('trackEvent'), containsPair('eventToken', 'def456'));
+    });
+
+    test('the token factory refuses a type with two tokens', () {
+      expect(
+        () => TokenAdjustEventTrackerFactory([
+          AdjustToken<_SignUpCompleted>('abc123'),
+          AdjustToken<_SignUpCompleted>('def456'),
+        ]),
+        throwsArgumentError,
+      );
+    });
+
+    test('the token list cannot be changed after the factory is built', () {
+      final tokens = <AdjustToken<Event>>[];
       final factory = TokenAdjustEventTrackerFactory(tokens);
 
-      tokens['b'] = 'u';
+      tokens.add(AdjustToken<_SignUpCompleted>('abc123'));
 
-      expect(factory.create(const TestEvent('b')), const Declined());
+      expect(factory.create(const _SignUpCompleted()), const Declined());
     });
 
     test('custom factories before the token factory send purchases and ad revenue', () async {
       final tracker = AdjustAnalyticsTrackerService(
         eventTrackerFactory: CompositeAdjustEventTrackerFactory([
           const BillingAdjustEventTrackerFactory(),
-          TokenAdjustEventTrackerFactory({'checkout_started': 'abc123'}),
+          TokenAdjustEventTrackerFactory([AdjustToken<_SignUpCompleted>('abc123')]),
         ]),
         propertySetterFactory: CompositeAdjustPropertySetterFactory([
           const GenericAdjustPropertySetterFactory(),
@@ -172,7 +202,7 @@ void main() {
       expect(
         () => CompositeAdjustEventTrackerFactory([
           const RequireMappedAdjustEventTrackerFactory(),
-          TokenAdjustEventTrackerFactory({'checkout_started': 'abc123'}),
+          TokenAdjustEventTrackerFactory([AdjustToken<_SignUpCompleted>('abc123')]),
         ]),
         throwsArgumentError,
       );
@@ -252,4 +282,15 @@ final class const BillingAdjustEventTrackerFactory() implements AdjustEventTrack
     ]),
     _ => .declined(),
   };
+}
+
+class _SignUpCompleted extends Event {
+  const _SignUpCompleted();
+
+  @override
+  String get name => 'sign_up_completed';
+}
+
+final class _SignUpCompletedWithGoogle extends _SignUpCompleted {
+  const _SignUpCompletedWithGoogle();
 }

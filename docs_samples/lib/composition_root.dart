@@ -56,7 +56,7 @@ HeraldProvider mixpanelProvider(Mixpanel mixpanel) {
   );
 }
 
-HeraldProvider adjustProvider(AdjustConfig config, Map<String, String> tokens) {
+HeraldProvider adjustProvider(AdjustConfig config, List<AdjustToken<Event>> tokens) {
   final tracker = AdjustAnalyticsTrackerService(
     eventTrackerFactory: CompositeAdjustEventTrackerFactory([
       TokenAdjustEventTrackerFactory(tokens), // only events with a dashboard token
@@ -101,7 +101,7 @@ Herald buildHerald({
   required FirebaseAnalytics firebaseAnalytics,
   required Mixpanel mixpanel,
   required AdjustConfig adjustConfig,
-  required Map<String, String> adjustTokens,
+  required List<AdjustToken<Event>> adjustTokens,
 }) {
   // --8<-- [start:herald]
   final herald = Herald(

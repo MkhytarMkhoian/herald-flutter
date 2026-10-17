@@ -14,7 +14,8 @@ final class const CheckoutStarted(final String plan, final int seats) extends Ev
 HeraldProvider adjustProvider(AdjustConfig config) {
   final tracker = AdjustAnalyticsTrackerService(
     eventTrackerFactory: CompositeAdjustEventTrackerFactory([
-      TokenAdjustEventTrackerFactory({'checkout_started': 'abc123'}), // from your Adjust dashboard
+      // The token comes from your Adjust dashboard.
+      TokenAdjustEventTrackerFactory([AdjustToken<CheckoutStarted>('abc123')]),
     ]), // nothing at the end: only events with a token are sent
     propertySetterFactory: CompositeAdjustPropertySetterFactory([
       const GenericAdjustPropertySetterFactory(),
