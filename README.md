@@ -11,11 +11,11 @@
 
 Herald is an analytics library for mobile apps. Your app describes what happened as an event, and
 Herald sends that event to every analytics service you use: Firebase, Adjust, Mixpanel, AppsFlyer,
-Amplitude, or one you build yourself.
+Amplitude, Meta, or one you build yourself.
 
 This repository is the **Flutter SDK**. It is the same design as the
 [Android SDK](https://github.com/MkhytarMkhoian/herald) — the same events, interfaces, factories and
-vendor rules — written in Dart, over each vendor's official Flutter plugin.
+vendor rules — written in Dart, over each vendor's Flutter plugin.
 
 - **Your features don't know which vendors you use.** A feature tracks its own event, like
   `CheckoutStarted`, and never calls a vendor SDK directly.
@@ -108,6 +108,7 @@ absolute. -->
 | [`herald_adjust`](https://pub.dev/packages/herald_adjust) | Sends to Adjust, over `adjust_sdk`: events by dashboard token, purchases and ad revenue. |
 | [`herald_mixpanel`](https://pub.dev/packages/herald_mixpanel) | Sends to Mixpanel, over `mixpanel_flutter`: events, user profile and super properties. |
 | [`herald_appsflyer`](https://pub.dev/packages/herald_appsflyer) | Sends to AppsFlyer, over `appsflyer_sdk` 7: conversions, purchases, subscriptions and ad revenue. |
+| [`herald_meta`](https://pub.dev/packages/herald_meta) | Sends to Meta, over `facebook_app_events`: conversions and purchases, for Meta's ads. |
 | [`herald_amplitude`](https://pub.dev/packages/herald_amplitude) | Sends to Amplitude, over `amplitude_flutter`: events, user properties, screen views and revenue. |
 | [`herald_log`](https://pub.dev/packages/herald_log) | Prints every call, for debug builds. Pure Dart. |
 | [`herald_testing`](https://pub.dev/packages/herald_testing) | `FakeAnalyticsProvider`, a fake vendor that records events so your tests can check them. |
@@ -125,6 +126,7 @@ Herald needs Dart 3.13 and Flutter 3.47 or newer. It is built and tested against
 | `adjust_sdk` | 5.8 |
 | `mixpanel_flutter` | 2.14 |
 | `appsflyer_sdk` | 7.0 |
+| `facebook_app_events` | 0.31 |
 | `amplitude_flutter` | 4.7 |
 
 Each vendor package allows newer versions of its plugin within the same major version. A new major

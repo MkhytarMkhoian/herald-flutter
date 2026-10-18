@@ -14,6 +14,7 @@ dependencies:
   adjust_sdk: ^5.8.0
   amplitude_flutter: ^4.7.2
   appsflyer_sdk: ^7.0.2
+  facebook_app_events: ^0.31.0
   firebase_analytics: ^12.6.0
   flutter:
     sdk: flutter
@@ -23,6 +24,7 @@ dependencies:
   herald_appsflyer: ^1.1.0
   herald_firebase: ^1.1.0
   herald_log: ^1.1.0
+  herald_meta: ^1.1.0
   herald_mixpanel: ^1.1.0
   herald_widgets: ^1.1.0
   mixpanel_flutter: ^2.14.0

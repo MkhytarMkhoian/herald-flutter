@@ -14,6 +14,7 @@ workspace:
   - packages/herald_adjust
   - packages/herald_mixpanel
   - packages/herald_appsflyer
+  - packages/herald_meta
   - packages/herald_amplitude
   - docs_samples
   - example

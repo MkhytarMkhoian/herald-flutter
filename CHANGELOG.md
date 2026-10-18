@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 1.2.0
+
+_Unreleased_
+
+ * New: `herald_meta`, which sends events to Meta's App Events, over `facebook_app_events` 0.31:
+   conversions under Meta's standard names, and purchases through `MetaPurchaseEvent`.
+
 ## Version 1.1.0
 
 _2026-10-17_
