@@ -45,7 +45,8 @@ jobs:
       - name: Publish
         run: |
           for package in herald herald_testing herald_log herald_widgets \
-              herald_firebase herald_adjust herald_mixpanel herald_appsflyer herald_amplitude; do
+              herald_firebase herald_adjust herald_mixpanel herald_appsflyer herald_amplitude \
+              herald_meta; do
             (cd "packages/$package" && flutter pub publish --force)
           done
 
