@@ -26,6 +26,46 @@ HeraldProvider metaProvider(List<MetaEventTrackerFactory> featureFactories) {
   return provider;
 }
 
+HeraldProvider gatedMetaProvider(List<MetaEventTrackerFactory> featureFactories) {
+  final appEvents = FacebookAppEvents();
+  final tracker = MetaAnalyticsTrackerService(
+    eventTrackerFactory: CompositeMetaEventTrackerFactory(featureFactories),
+  );
+  final service = MetaAnalyticsService(appEvents);
+  // --8<-- [start:gate]
+  final gate = ConsentGate(tracker, service);
+
+  final provider = HeraldProvider(
+    name: 'meta',
+    events: gate, // dropped while consent is off
+    identity: service,
+    lifecycle: service,
+    consent: gate, // keeps the answer, then turns Meta's own switch
+  );
+  // --8<-- [end:gate]
+  return provider;
+}
+
+// --8<-- [start:gate-class]
+/// Meta's own switch doesn't stop the events your app logs, so this drops them while consent is
+/// off.
+final class ConsentGate(final EventTrackerService _events, final ConsentService _consent)
+    implements EventTrackerService, ConsentService {
+  bool _enabled = false;
+
+  @override
+  Future<void> track(Event event) async {
+    if (_enabled) await _events.track(event);
+  }
+
+  @override
+  Future<void> setEnabled(bool enabled) async {
+    _enabled = enabled;
+    await _consent.setEnabled(enabled);
+  }
+}
+// --8<-- [end:gate-class]
+
 // --8<-- [start:conversions]
 final class const CheckoutMetaEventTrackerFactory(final FacebookAppEvents appEvents)
     implements MetaEventTrackerFactory {
