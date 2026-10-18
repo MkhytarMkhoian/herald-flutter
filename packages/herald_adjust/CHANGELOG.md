@@ -1,3 +1,8 @@
+## 1.2.0
+
+- No changes of its own: released with the other packages.
+- See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).
+
 ## 1.1.0
 
 - Breaking: `TokenAdjustEventTrackerFactory` takes a list of `AdjustToken`s, such as
