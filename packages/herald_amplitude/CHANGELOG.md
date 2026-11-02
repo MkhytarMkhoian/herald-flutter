@@ -1,3 +1,8 @@
+## 1.3.0
+
+- Upgrade: needs `amplitude_flutter` 4.8.1 or newer.
+- See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).
+
 ## 1.2.0
 
 - No changes of its own: released with the other packages.

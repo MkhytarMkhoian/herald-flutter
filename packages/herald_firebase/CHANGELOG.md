@@ -1,3 +1,8 @@
+## 1.3.0
+
+- Upgrade: needs `firebase_analytics` 13, which needs Android API 24 and `firebase_core` 5.
+- See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).
+
 ## 1.2.0
 
 - No changes of its own: released with the other packages.

@@ -1,3 +1,8 @@
+## 1.3.0
+
+- Upgrade: needs `mixpanel_flutter` 3, which needs iOS 15.
+- See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).
+
 ## 1.2.0
 
 - No changes of its own: released with the other packages.

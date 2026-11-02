@@ -1,8 +1,8 @@
 # Change Log
 
-## Unreleased
+## Version 1.3.0
 
-_Unreleased_
+_2026-11-02_
 
  * Upgrade: `herald_firebase` needs `firebase_analytics` 13, which needs Android API 24 and
    `firebase_core` 5: your other FlutterFire plugins move to their matching versions too. On iOS,

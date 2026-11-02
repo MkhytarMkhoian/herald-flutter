@@ -1,3 +1,8 @@
+## 1.3.0
+
+- Upgrade: needs `appsflyer_sdk` 7.0.4 or newer.
+- See the [repository change log](https://github.com/MkhytarMkhoian/herald-flutter/blob/main/CHANGELOG.md).
+
 ## 1.2.0
 
 - No changes of its own: released with the other packages.
