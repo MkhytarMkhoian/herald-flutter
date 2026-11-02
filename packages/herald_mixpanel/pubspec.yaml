@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
   herald: ^1.2.0
-  mixpanel_flutter: ^2.14.0
+  mixpanel_flutter: ^3.1.0
 
 dev_dependencies:
   flutter_test:

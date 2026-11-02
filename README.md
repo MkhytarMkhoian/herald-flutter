@@ -120,15 +120,17 @@ Herald needs Dart 3.13 and Flutter 3.47 or newer. It is built and tested against
 
 | Plugin | Version |
 | --- | --- |
-| `firebase_analytics` | 12.6 |
+| `firebase_analytics` | 13.0 |
 | `adjust_sdk` | 5.8 |
-| `mixpanel_flutter` | 2.14 |
+| `mixpanel_flutter` | 3.1 |
 | `appsflyer_sdk` | 7.0 |
 | `facebook_app_events` | 0.31 |
-| `amplitude_flutter` | 4.7 |
+| `amplitude_flutter` | 4.8 |
 
 Each vendor package allows newer versions of its plugin within the same major version. A new major
 version of a plugin may need a Herald release.
+
+`firebase_analytics` 13 needs Android API 24, and `mixpanel_flutter` 3 needs iOS 15.
 <!-- --8<-- [end:compatibility] -->
 
 ## What differs from Android

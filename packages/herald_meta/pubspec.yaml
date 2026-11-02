@@ -14,7 +14,7 @@ environment:
 resolution: workspace
 
 dependencies:
-  facebook_app_events: ^0.31.0
+  facebook_app_events: ^0.31.1
   flutter:
     sdk: flutter
   herald: ^1.2.0

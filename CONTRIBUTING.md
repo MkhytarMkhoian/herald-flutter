@@ -9,7 +9,7 @@ in both, so open an issue first and say which SDK you'd like to start with.
 
 ## Setting up
 
-Herald uses the Flutter version in `.fvmrc` (Flutter 3.47.5, Dart 3.13). The repository is a
+Herald uses the Flutter version in `.fvmrc` (Flutter 3.47.9, Dart 3.13). The repository is a
 [pub workspace](https://dart.dev/tools/pub/workspaces) managed with [melos](https://melos.invertase.dev):
 one `flutter pub get` at the root resolves every package.
 

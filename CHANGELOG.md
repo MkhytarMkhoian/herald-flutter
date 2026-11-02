@@ -1,5 +1,17 @@
 # Change Log
 
+## Unreleased
+
+_Unreleased_
+
+ * Upgrade: `herald_firebase` needs `firebase_analytics` 13, which needs Android API 24 and
+   `firebase_core` 5: your other FlutterFire plugins move to their matching versions too. On iOS,
+   Swift Package Manager apps get Firebase's iOS SDK 13, and CocoaPods apps stay on 12.
+ * Upgrade: `herald_mixpanel` needs `mixpanel_flutter` 3, which needs iOS 15 and Mixpanel's iOS
+   SDK 7.
+ * Upgrade: `herald_amplitude` needs `amplitude_flutter` 4.8.1 or newer, `herald_appsflyer`
+   `appsflyer_sdk` 7.0.4, and `herald_meta` `facebook_app_events` 0.31.1.
+
 ## Version 1.2.0
 
 _2026-10-18_
